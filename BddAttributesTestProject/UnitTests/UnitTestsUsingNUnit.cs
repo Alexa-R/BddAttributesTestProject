@@ -5,7 +5,6 @@ using NUnit.Framework;
 namespace BddAttributesTestProject.UnitTests
 {
     [TestFixture]
-    [Parallelizable(ParallelScope.Fixtures)]
     public class UnitTestsUsingNUnit
     {
         [Test]
@@ -47,9 +46,7 @@ namespace BddAttributesTestProject.UnitTests
         [TestCaseSource(nameof(GetNumbersXmlData))]
         public void MultiplyOnTwo(int value1, int value2, int expected)
         {
-            var actual = value1 * value2;
-
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, value1 * value2);
         }
 
         public static IEnumerable<object[]> GetNumbersXmlData()

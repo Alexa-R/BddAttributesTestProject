@@ -51,9 +51,7 @@ namespace BddAttributesTestProject.UnitTests
             int value2 = int.Parse(TestContext.DataRow["Number2"].ToString());
             int expected = int.Parse(TestContext.DataRow["Expected"].ToString());
 
-            var actual = value1 * value2;
-
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, value1 * value2);
         }
     }
 }

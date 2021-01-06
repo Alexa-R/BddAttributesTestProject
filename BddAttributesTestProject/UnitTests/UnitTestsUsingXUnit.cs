@@ -51,9 +51,7 @@ namespace BddAttributesTestProject.UnitTests
         [MemberData(nameof(GetNumbersXmlData))]
         public void MultiplyOnTwo(int value1, int value2, int expected)
         {
-            var actual = value1 * value2;
-
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, value1 * value2);
         }
 
         public static IEnumerable<object[]> GetNumbersXmlData()
