@@ -72,7 +72,7 @@
   <ItemGroup>
     <Compile Include="UnitTests\UnitTestsUsingNUnit.cs" />
     <Compile Include="UnitTests\UnitTestsUsingXUnit.cs" />
-    <Compile Include="UnitTests\UnitTestsUsingMsTeam.cs" />
+    <Compile Include="UnitTests\UnitTestsUsingMsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

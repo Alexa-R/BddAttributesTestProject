@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace BddAttributesTestProject.UnitTests
 {
     [TestClass]
-    public class UnitTestsUsingMsTeam
+    public class UnitTestsUsingMsTest
     {
         public TestContext TestContext { get; set; }
 
