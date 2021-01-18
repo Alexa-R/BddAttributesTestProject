@@ -37,9 +37,9 @@ namespace BddAttributesTestProject.UnitTests
             "NumbersGroup", DataAccessMethod.Sequential)]
         public void MultiplyOnTwo()
         {
-            int value1 = int.Parse(TestContext.DataRow["Number1"].ToString());
-            int value2 = int.Parse(TestContext.DataRow["Number2"].ToString());
-            int expected = int.Parse(TestContext.DataRow["Expected"].ToString());
+            var value1 = int.Parse(TestContext.DataRow["Number1"].ToString());
+            var value2 = int.Parse(TestContext.DataRow["Number2"].ToString());
+            var expected = int.Parse(TestContext.DataRow["Expected"].ToString());
 
             Assert.AreEqual(expected, value1 * value2);
         }
