@@ -22,12 +22,18 @@ namespace BddAttributesTestProject.UnitTests
             Assert.Equal(expected, value1 * value2);
         }
 
-
         [Theory]
         [MemberData(nameof(GetNumbersData))]
-        public void СompareNumberPairs(int value1, int value2)
+        public void CompareNumberPairs(int value1, int value2)
         {
             Assert.Equal(value1, value2);
+        }
+
+        [Theory]
+        [MemberData(nameof(GetNumbersXmlData))]
+        public void MultiplyOnTwo(int value1, int value2, int expected)
+        {
+            Assert.Equal(expected, value1 * value2);
         }
 
         public static IEnumerable<object[]> GetNumbersData
@@ -36,22 +42,14 @@ namespace BddAttributesTestProject.UnitTests
             {
                 return new[]
                 {
-                    new object[] {1, 1},
-                    new object[] {-1, -1},
-                    new object[] {0, 0},
-                    new object[] {99, 99},
-                    new object[] {int.MinValue, int.MinValue},
-                    new object[] {int.MaxValue, int.MaxValue}
+                    new object[] { 1, 1 },
+                    new object[] { -1, -1 },
+                    new object[] { 0, 0 },
+                    new object[] { 99, 99 },
+                    new object[] { int.MinValue, int.MinValue },
+                    new object[] { int.MaxValue, int.MaxValue }
                 };
             }
-        }
-
-
-        [Theory]
-        [MemberData(nameof(GetNumbersXmlData))]
-        public void MultiplyOnTwo(int value1, int value2, int expected)
-        {
-            Assert.Equal(expected, value1 * value2);
         }
 
         public static IEnumerable<object[]> GetNumbersXmlData()
@@ -69,7 +67,7 @@ namespace BddAttributesTestProject.UnitTests
                 var value2 = int.Parse(node.SelectSingleNode("Number2")?.InnerText ?? string.Empty);
                 var expected = int.Parse(node.SelectSingleNode("Expected")?.InnerText ?? string.Empty);
 
-                yield return new object[] {value1, value2, expected};
+                yield return new object[] { value1, value2, expected };
             }
         }
     }

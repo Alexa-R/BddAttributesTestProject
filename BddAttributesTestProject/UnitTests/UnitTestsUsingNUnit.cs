@@ -25,22 +25,10 @@ namespace BddAttributesTestProject.UnitTests
 
         [Test]
         [TestCaseSource(nameof(GetNumbersData))]
-        public void СompareNumberPairs(int value1, int value2)
+        public void CompareNumberPairs(int value1, int value2)
         {
             Assert.AreEqual(value1, value2);
         }
-
-        public static IEnumerable<object[]> GetNumbersData =>
-            new List<object[]>
-            {
-                new object[] {1, 1},
-                new object[] {-1, -1},
-                new object[] {0, 0},
-                new object[] {99, 99},
-                new object[] {int.MinValue, int.MinValue},
-                new object[] {int.MaxValue, int.MaxValue}
-            };
-
 
         [Test]
         [TestCaseSource(nameof(GetNumbersXmlData))]
@@ -49,7 +37,18 @@ namespace BddAttributesTestProject.UnitTests
             Assert.AreEqual(expected, value1 * value2);
         }
 
-        public static IEnumerable<object[]> GetNumbersXmlData()
+        private static IEnumerable<object[]> GetNumbersData =>
+            new List<object[]>
+            {
+                new object[] { 1, 1 },
+                new object[] { -1, -1 },
+                new object[] { 0, 0 },
+                new object[] { 99, 99 },
+                new object[] { int.MinValue, int.MinValue },
+                new object[] { int.MaxValue, int.MaxValue }
+            };
+
+        private static IEnumerable<object[]> GetNumbersXmlData()
         {
             var xmlDoc = new XmlDocument();
             xmlDoc.Load(
@@ -64,7 +63,7 @@ namespace BddAttributesTestProject.UnitTests
                 var value2 = int.Parse(node.SelectSingleNode("Number2")?.InnerText ?? string.Empty);
                 var expected = int.Parse(node.SelectSingleNode("Expected")?.InnerText ?? string.Empty);
 
-                yield return new object[] {value1, value2, expected};
+                yield return new object[] { value1, value2, expected };
             }
         }
     }

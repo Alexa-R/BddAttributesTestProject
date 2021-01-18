@@ -26,19 +26,9 @@ namespace BddAttributesTestProject.UnitTests
 
         [DataTestMethod]
         [DynamicData(nameof(GetNumbersData), DynamicDataSourceType.Method)]
-        public void СompareNumberPairs(int value1, int value2)
+        public void CompareNumberPairs(int value1, int value2)
         {
             Assert.AreEqual(value1, value2);
-        }
-
-        public static IEnumerable<object[]> GetNumbersData()
-        {
-            yield return new object[] {1, 1};
-            yield return new object[] {-1, -1};
-            yield return new object[] {0, 0};
-            yield return new object[] {99, 99};
-            yield return new object[] {int.MinValue, int.MinValue};
-            yield return new object[] {int.MaxValue, int.MaxValue};
         }
 
         [TestMethod]
@@ -52,6 +42,16 @@ namespace BddAttributesTestProject.UnitTests
             int expected = int.Parse(TestContext.DataRow["Expected"].ToString());
 
             Assert.AreEqual(expected, value1 * value2);
+        }
+
+        private static IEnumerable<object[]> GetNumbersData()
+        {
+            yield return new object[] { 1, 1 };
+            yield return new object[] { -1, -1 };
+            yield return new object[] { 0, 0 };
+            yield return new object[] { 99, 99 };
+            yield return new object[] { int.MinValue, int.MinValue };
+            yield return new object[] { int.MaxValue, int.MaxValue };
         }
     }
 }
