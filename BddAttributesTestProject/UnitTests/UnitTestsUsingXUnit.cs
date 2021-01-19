@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
+using BddAttributesTestProject.Helpers;
 using Xunit;
 
 namespace BddAttributesTestProject.UnitTests
@@ -57,18 +58,15 @@ namespace BddAttributesTestProject.UnitTests
             var xmlDoc = new XmlDocument();
             xmlDoc.Load(
                 "C://Users//Alexa//source//repos//BddAttributesTestProject//BddAttributesTestProject//UnitTestsData//MultiplyOnTwoData.xml");
+            IEnumerable<object[]> xmlData = null;
 
-            var nodeList = xmlDoc.DocumentElement?.SelectNodes("/NumbersGroups/NumbersGroup");
-
-            if (nodeList == null) yield break;
-            foreach (XmlNode node in nodeList)
+            if (xmlDoc.DocumentElement != null)
             {
-                var value1 = int.Parse(node.SelectSingleNode("Number1")?.InnerText ?? string.Empty);
-                var value2 = int.Parse(node.SelectSingleNode("Number2")?.InnerText ?? string.Empty);
-                var expected = int.Parse(node.SelectSingleNode("Expected")?.InnerText ?? string.Empty);
-
-                yield return new object[] { value1, value2, expected };
+                var nodeList = xmlDoc.DocumentElement.SelectNodes("/NumbersGroups/NumbersGroup");
+                xmlData = XmlDocReader.ReadSingleNode(nodeList, "Number1", "Number2", "Expected");
             }
+
+            return xmlData;
         }
     }
 }

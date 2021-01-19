@@ -70,6 +70,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\XmlDocReader.cs" />
     <Compile Include="UnitTests\UnitTestsUsingNUnit.cs" />
     <Compile Include="UnitTests\UnitTestsUsingXUnit.cs" />
     <Compile Include="UnitTests\UnitTestsUsingMsTest.cs" />
