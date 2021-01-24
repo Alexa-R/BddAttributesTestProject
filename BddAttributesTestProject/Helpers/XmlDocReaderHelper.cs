@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace BddAttributesTestProject.Helpers
 {
-    public static class XmlDocReader
+    public static class XmlDocReaderHelper
     {
         public static IEnumerable<object[]> ReadSingleNodes(XmlNodeList nodeList, params string[] nodeNames)
         {

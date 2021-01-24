@@ -63,7 +63,7 @@ namespace BddAttributesTestProject.UnitTests
             if (xmlDoc.DocumentElement != null)
             {
                 var nodeList = xmlDoc.DocumentElement.SelectNodes("/NumbersGroups/NumbersGroup");
-                xmlData = XmlDocReader.ReadSingleNodes(nodeList, "Number1", "Number2", "Expected");
+                xmlData = XmlDocReaderHelper.ReadSingleNodes(nodeList, "Number1", "Number2", "Expected");
             }
 
             return xmlData;
